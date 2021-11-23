@@ -20,7 +20,20 @@ INSERT INTO song(song_id, artist, song_name, genre, remix, radio_mix, bpm, name_
 INSERT INTO song(artist, song_name, genre, remix, radio_mix, bpm, name_file, located) VALUES('Mariah Cary??', 'My heart will go on', 'Christmas classics', '0', '1', '500', 'mcmhwgo.mp3', 'folder/folder/otherFolder/songs' );				
 
 /* user table */
+CREATE TABLE user (
+    user_id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
+    username VARCHAR(30) NOT NULL, 
+    email VARCHAR(30) NOT NULL, 
+    password VARCHAR(300) NOT NULL, 
+    payment ENUM('credit', 'debit', 'paypal'), 
+    PRIMARY KEY(user_id)
+);
 
+/* first line to set the auto_increment to 5000 for users
+   next lines to insert into table */
+/* PASSWORD() is used to hash user passwords on table */
+INSERT INTO user(user_id, username, email, password) VALUES('5000', 'test_user', 'email@domain.com', PASSWORD('lajenny'));
+INSERT INTO user(username, email, password) VALUES('frog-beats', 'croaking@pond.com', PASSWORD('frogge123'));
 
 /* basic play table */
 CREATE TABLE sodapop (
