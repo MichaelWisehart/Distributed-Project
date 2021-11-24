@@ -6,8 +6,8 @@ CREATE TABLE song (
     artist VARCHAR(60) NOT NULL,
     bpm INT UNSIGNED,
     key_sig VARCHAR(10),
-    clean BOOLEAN NOT NULL,
-    remix BOOLEAN NOT NULL,
+    clean BOOLEAN,
+    remix BOOLEAN,
     genre VARCHAR(60),
     song_price VARCHAR(60),
     name_file VARCHAR(60),
@@ -17,9 +17,12 @@ CREATE TABLE song (
 
 /* first line to set the auto_increment to 3000 for songs
    next lines to insert into table */
-INSERT INTO song(song_id, song_name, artist, bpm, key_sig, clean, remix, genre, song_price, name_file, located) VALUES('3000', 'Blue (Da Ba Dee)', 'Eiffel 65', '128', 'A10', '0', '1', 'Eurodance', '3.99', 'blue.mp3', 'folder/folder/otherFolder/songs');		
-INSERT INTO song(artist, song_name, genre, remix, radio_mix, bpm, name_file, located) VALUES('Mariah Cary??', 'My heart will go on', 'Christmas classics', '0', '1', '500', 'mcmhwgo.mp3', 'folder/folder/otherFolder/songs' );				
-
+INSERT INTO song(song_id, song_name, artist, bpm, key_sig, clean, remix, genre, song_price, name_file, located) VALUES('3000', 'Blue (Da Ba Dee)', 'Eiffel 65', '128', 'A10', '0', '1', 'Eurodance', '3.99', 'blue.mp3', 'folder/folder/otherFolder/songs');
+INSERT INTO song(song_id, song_name, artist, bpm, key_sig, clean, remix, genre, song_price, name_file, located) VALUES('3000', 'Blue (Da Ba Dee)', 'Eiffel 65', '128', 'A10', '0', '1', 'Eurodance', '3.99', 'blue.mp3', 'folder/folder/otherFolder/songs');
+INSERT INTO song(song_name, artist, bpm, key_sig, clean, remix, song_price, located) VALUES('Lil Boat', '88GLAM', '75', '12A', '1', '0', '3.99', 'folder/folder/otherFolder/songs');
+INSERT INTO song(song_name, artist, bpm, key_sig, clean, remix, song_price, located) VALUES('Lil Boat', '88GLAM', '75', '12A', '0', '0', '3.99', 'folder/folder/otherFolder/songs');
+INSERT INTO song(song_name, artist, bpm, key_sig, song_price, located) VALUES('One Night', 'Arno Cost & Norman Doray', '126', '6B', '3.99', 'folder/folder/otherFolder/songs');
+INSERT INTO song(song_name, artist, bpm, key_sig, remix, song_price, located) VALUES('Swoopin  (RL Grime Edit)', 'Baauer & RL Grime', '76', '10A', '1', '3.99', 'folder/folder/songs');
 /* user table */
 CREATE TABLE user (
     user_id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
@@ -48,4 +51,5 @@ CREATE TABLE sodapop (
 SHOW TABLES;
 SELECT * FROM table_name;
 ALTER TABLE song CHANGE radio_mix clean boolean;
+DELETE FROM song WHERE song_id = '3005'
 
