@@ -7,7 +7,7 @@ CREATE TABLE song (
     genre VARCHAR(60) NOT NULL,
     song_price VARCHAR(60),
     remix BOOLEAN NOT NULL,
-    radio_mix BOOLEAN NOT NULL,
+    clean BOOLEAN NOT NULL,
     bpm INT UNSIGNED NOT NULL,
     name_file VARCHAR(60) NOT NULL,
     located VARCHAR(180) NOT NULL,
@@ -46,3 +46,5 @@ CREATE TABLE sodapop (
 /* some reminder commands */
 SHOW TABLES;
 SELECT * FROM table_name;
+ALTER TABLE song CHANGE radio_mix clean boolean;
+
