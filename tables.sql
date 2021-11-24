@@ -4,19 +4,20 @@ CREATE TABLE song (
     song_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     song_name VARCHAR(60) NOT NULL,
     artist VARCHAR(60) NOT NULL,
-    genre VARCHAR(60) NOT NULL,
-    song_price VARCHAR(60),
-    remix BOOLEAN NOT NULL,
-    clean BOOLEAN NOT NULL,
     bpm INT UNSIGNED,
-    name_file VARCHAR(60) NOT NULL,
-    located VARCHAR(180) NOT NULL,
+    key_sig VARCHAR(10),
+    clean BOOLEAN NOT NULL,
+    remix BOOLEAN NOT NULL,
+    genre VARCHAR(60),
+    song_price VARCHAR(60),
+    name_file VARCHAR(60),
+    located VARCHAR(180),
     PRIMARY KEY (song_id)
 );
 
 /* first line to set the auto_increment to 3000 for songs
    next lines to insert into table */
-INSERT INTO song(song_id, artist, song_name, genre, remix, radio_mix, bpm, name_file, located) VALUES('3000', 'Eiffel 65', 'Blue (Da Ba Dee)', 'Eurodance', '0', '1', '128', 'blue.mp3', 'folder/folder/otherFolder/songs' );				
+INSERT INTO song(song_id, song_name, artist, bpm, key_sig, clean, remix, genre, song_price, name_file, located) VALUES('3000', 'Blue (Da Ba Dee)', 'Eiffel 65', '128', 'A10', '0', '1', 'Eurodance', '3.99', 'blue.mp3', 'folder/folder/otherFolder/songs');		
 INSERT INTO song(artist, song_name, genre, remix, radio_mix, bpm, name_file, located) VALUES('Mariah Cary??', 'My heart will go on', 'Christmas classics', '0', '1', '500', 'mcmhwgo.mp3', 'folder/folder/otherFolder/songs' );				
 
 /* user table */
