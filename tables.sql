@@ -2,13 +2,13 @@
 /* song entity table */
 CREATE TABLE song (
     song_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    artist VARCHAR(60) NOT NULL,
     song_name VARCHAR(60) NOT NULL,
+    artist VARCHAR(60) NOT NULL,
     genre VARCHAR(60) NOT NULL,
     song_price VARCHAR(60),
     remix BOOLEAN NOT NULL,
     clean BOOLEAN NOT NULL,
-    bpm INT UNSIGNED NOT NULL,
+    bpm INT UNSIGNED,
     name_file VARCHAR(60) NOT NULL,
     located VARCHAR(180) NOT NULL,
     PRIMARY KEY (song_id)
