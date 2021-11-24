@@ -23,6 +23,15 @@ INSERT INTO song(song_name, artist, bpm, key_sig, clean, remix, song_price, loca
 INSERT INTO song(song_name, artist, bpm, key_sig, clean, remix, song_price, located) VALUES('Lil Boat', '88GLAM', '75', '12A', '0', '0', '3.99', 'folder/folder/otherFolder/songs');
 INSERT INTO song(song_name, artist, bpm, key_sig, song_price, located) VALUES('One Night', 'Arno Cost & Norman Doray', '126', '6B', '3.99', 'folder/folder/otherFolder/songs');
 INSERT INTO song(song_name, artist, bpm, key_sig, remix, song_price, located) VALUES('Swoopin  (RL Grime Edit)', 'Baauer & RL Grime', '76', '10A', '1', '3.99', 'folder/folder/songs');
+INSERT INTO song(song_name, artist, clean, song_price, located) VALUES('Back to the Streets', 'HMC Hype', '1', '3.99', 'folder/folder/otherFolder/songs');
+INSERT INTO song(song_name, artist, clean, song_price, located) VALUES('Back to the Streets', 'HMC Hype', '0', '3.99', 'folder/folder/otherFolder/songs');
+INSERT INTO song(song_name, artist, clean, song_price, located) VALUES('Big Slimes', 'Chris Brown', '1', '3.99', 'folder/folder/otherFolder/songs');
+INSERT INTO song(song_name, artist, clean, song_price, located) VALUES('Big Slimes', 'Chris Brown', '0', '3.99', 'folder/folder/otherFolder/songs');
+INSERT INTO song(song_name, artist, song_price, located) VALUES('Bind', 'unknown artist', '3.99', 'folder/folder/otherFolder/songs');
+INSERT INTO song(song_name, artist, bpm, key_sig, remix, song_price, located) VALUES('From The Start', 'Biscits', '123', '4A', '0', '3.99', 'folder/folder/otherFolder/songs');
+INSERT INTO song(song_name, artist, bpm, key_sig, remix, song_price, located) VALUES('From The Start', 'Biscits', '123', '4A', '1', '3.99', 'folder/folder/otherFolder/songs');
+INSERT INTO song(song_name, artist, bpm, remix, song_price, located) VALUES('MAMACITA', 'Black Eyes Peas, Ozuna J. Rey', '100', '1', '3.99', 'folder/songs');
+INSERT INTO song(song_name, artist, bpm, song_price) VALUES('Can\'t Get You Out Of My Head', 'Block & Crown feat. Omni Waters', '124', '3.99');
 /* user table */
 CREATE TABLE user (
     user_id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
@@ -52,4 +61,6 @@ SHOW TABLES;
 SELECT * FROM table_name;
 ALTER TABLE song CHANGE radio_mix clean boolean;
 DELETE FROM song WHERE song_id = '3005'
+select * from song where bpm > '100';
+UPDATE song SET key_sig = '8A' WHERE song_id = '3015';
 
