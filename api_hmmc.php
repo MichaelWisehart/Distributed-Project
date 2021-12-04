@@ -14,7 +14,7 @@ if (!$conn) {
     die("Connection failed! Unable to establish connection.");
 }
 if (isset($_POST['allSongs'])) {
-    // perform query, protect from sql injection
+    // perform query, prepare
     $result = $conn->prepare("SELECT * FROM song");
     $result->execute();
 
