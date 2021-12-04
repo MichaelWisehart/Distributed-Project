@@ -32,6 +32,7 @@ INSERT INTO song(song_name, artist, bpm, key_sig, remix, song_price, located) VA
 INSERT INTO song(song_name, artist, bpm, key_sig, remix, song_price, located) VALUES('From The Start', 'Biscits', '123', '4A', '1', '3.99', 'folder/folder/otherFolder/songs');
 INSERT INTO song(song_name, artist, bpm, remix, song_price, located) VALUES('MAMACITA', 'Black Eyes Peas, Ozuna J. Rey', '100', '1', '3.99', 'folder/songs');
 INSERT INTO song(song_name, artist, bpm, song_price) VALUES('Can\'t Get You Out Of My Head', 'Block & Crown feat. Omni Waters', '124', '3.99');
+
 /* user table */
 CREATE TABLE user (
     user_id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
@@ -47,6 +48,45 @@ CREATE TABLE user (
 /* PASSWORD() is used to hash user passwords on table */
 INSERT INTO user(user_id, username, email, password) VALUES('5000', 'test_user', 'email@domain.com', PASSWORD('lajenny'));
 INSERT INTO user(username, email, password) VALUES('frog-beats', 'croaking@pond.com', PASSWORD('frogge123'));
+
+/*This is the table that holds subscription prices*/
+CREATE TABLE subprices (
+	sub_type enum('1', '2') NOT NULL,
+	price DECIMAL(19,2) UNSIGNED DEFAULT NULL,
+	PRIMARY KEY(sub_type)
+);
+
+/* The prices for the subscription */
+INSERT INTO subprices(sub_type, price) VALUES('1', '30.00');
+INSERT INTO subprices(sub_type, price) VALUES('2', '72.00');
+
+/* Holds user subscriptions */
+CREATE TABLE subscription (
+	usrID INT UNSIGNED NOT NULL,
+	sub_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	subtype enum('1', '2') NOT NULL,
+	FOREIGN KEY (usrID) REFERENCES user(user_id),
+	FOREIGN KEY (subtype) REFERENCES subprices(sub_type),
+	PRIMARY KEY(sub_id)
+);
+
+/* Creates the relationship 'PURCHASES' */
+CREATE TABLE purchases (
+	order_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	usrID INT UNSIGNED NOT NULL,
+	song_id INT UNSIGNED NOT NULL,
+	FOREIGN KEY (usrID) REFERENCES user(user_id),
+	FOREIGN KEY (song_id) REFERENCES song(song_id),
+	PRIMARY KEY(order_id)
+);
+
+/* Table to hold items in cart */
+CREATE TABLE cart (
+	usrID INT UNSIGNED NOT NULL,
+	song_id INT UNSIGNED NOT NULL,
+	FOREIGN KEY (usrID) REFERENCES user(user_id),
+	FOREIGN KEY (song_id) REFERENCES song(song_id)
+);
 
 /* basic play table */
 CREATE TABLE sodapop (
