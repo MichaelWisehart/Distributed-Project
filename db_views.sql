@@ -47,3 +47,12 @@ CREATE VIEW clean_music
 AS SELECT * 
 FROM song 
 WHERE clean = 1;
+
+/***************************************************************************************/
+
+/*This view show's current user's with subscriptions and the price they're paying*/
+CREATE VIEW user_sub AS
+SELECT usrID, sub_id, subtype, subprices.price
+FROM subscription
+INNER JOIN subprices ON subscription.subtype = subprices.sub_type;
+
