@@ -5,7 +5,7 @@ const MerchScreen = () => {
   return (
     <View>
       <Text style={styles.textHeader}>Merch Store</Text>
-      <Text style={styles.text}>Our team is dedicated to providing our users with quality music at their convience.</Text>
+      <Text style={styles.text}>Check out our merch!</Text>
     </View>
   );
 };

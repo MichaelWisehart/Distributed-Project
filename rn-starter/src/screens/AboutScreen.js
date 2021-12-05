@@ -5,7 +5,7 @@ const AboutScreen = () => {
   return (
     <View>
       <Text style={styles.textHeader}>About Page</Text>
-      <Text style={styles.text}>Our team is dedicated to providing our users with quality music at their convience.</Text>
+      <Text style={styles.text}>Our team is made up of four CSUB students dedicated to providing our users with quality music at their convenience.</Text>
     </View>
   );
 };

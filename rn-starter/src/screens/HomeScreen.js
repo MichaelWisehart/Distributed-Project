@@ -5,7 +5,7 @@ const HomeScreen = ({ navigation }) => {
   return (
   <View>
     <Text style={styles.textHeader}>Home Screen</Text>
-    <Text style={styles.text}>New Releases!     Updated 11/09/2021</Text>
+    <Text style={styles.text}>New Releases!</Text>
     <Text style={styles.text}>TOP 10 MIXES</Text>
     <TouchableOpacity onPress={() => navigation.navigate('Playlist')}>
       <Text>My Playlists</Text>
