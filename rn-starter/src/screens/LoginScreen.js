@@ -8,7 +8,7 @@ import { Context as AuthContext } from "../context/AuthContext";
 
 const LoginScreen = ({ navigation }) => {
     const { state, login, clearErrorMessage } = useContext(AuthContext);
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
     return (
@@ -19,9 +19,9 @@ const LoginScreen = ({ navigation }) => {
             <Text style={styles.text}>Log in to your account</Text>
         </Formatter>
         <Input 
-            label="Email"
-            value={email}
-            onChangeText={setEmail}
+            label="Username"
+            value={username}
+            onChangeText={setUsername}
             autoCapitalize="none"
             autoCorrect={false}
         />
@@ -35,7 +35,7 @@ const LoginScreen = ({ navigation }) => {
         />
         {state.errorMessage ? (<Text style={styles.errMessage}>{state.errorMessage}</Text>) : null}
         <Formatter>
-            <Button title="Log In" onPress={() => login({ email, password })}/>
+            <Button title="Log In" onPress={() => login({ username, password })}/>
         </Formatter>
         <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
             <Formatter>

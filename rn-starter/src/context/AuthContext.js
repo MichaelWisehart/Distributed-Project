@@ -50,9 +50,9 @@ const signup = (dispatch) => {
 };
 
 const login = (dispatch) => {
-    return async ({ email, password }) => {
+    return async ({ username, password }) => {
         try {
-            const response = await babyapi.post('/login', { email, password });
+            const response = await babyapi.post('/login', { username, password });
             await AsyncStorage.setItem('token', response.data.token);
             dispatch({ type: 'signin', payload: response.data.token });
             navigate('mainFlow');
