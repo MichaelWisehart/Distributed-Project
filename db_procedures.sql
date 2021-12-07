@@ -55,24 +55,12 @@ DELIMITER ;
 
 /* This is the procedure to checkout cart */
 DELIMITER //
-CREATE OR REPLACE PROCEDURE checkout (usrid varchar(30))
+CREATE OR REPLACE PROCEDURE checkout (usrid int)
 BEGIN
 	INSERT INTO purchases (usrID, song_id)
 	SELECT *
 	FROM cart WHERE cart.usrID = usrid;
-END; //
-DELIMITER ;
-
-CREATE OR REPLACE PROCEDURE checkout (usrid varchar(30)) BEGIN INSERT INTO purchases (usrID, song_id) SELECT * FROM cart WHERE cart.usrID = usrid; END; //
-
-/* This is the trigger to remove items from cart after checkout */
-DELIMITER //
-CREATE OR REPLACE TRIGGER emptyCart
-AFTER INSERT
-ON purchases FOR EACH ROW
-BEGIN
+	
 	DELETE FROM cart WHERE cart.usrID = NEW.usrID;
 END; //
 DELIMITER ;
-
-CREATE OR REPLACE TRIGGER emptyCart AFTER INSERT ON purchases FOR EACH ROW BEGIN DELETE FROM cart WHERE cart.usrID = NEW.usrID; END; // 
